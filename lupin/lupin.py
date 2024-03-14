@@ -2,7 +2,7 @@
 from typing import Any, Callable
 from inspect import getsource
 from .document import Document
-from .render import render, renderToHtml
+from .render import parse, renderToHtml
 
 class Lupin:
 
@@ -30,18 +30,10 @@ class Lupin:
             results.append(res)
         
         source = getsource(f)
-        lines = render(source)
+        lines = parse(source)
 
-        # insert yields at top level
-        c = 0
-        for line in lines:
-            
-            if line["type"] == "undefined" and line["raw"][:5] == "yield":
-                line["raw"] = results[c]
-                c += 1
-        
         # insert into document
-        htmls = renderToHtml(lines)
+        htmls = renderToHtml(lines, results)
 
         for html in htmls:
             self.doc.writeLine(html)
