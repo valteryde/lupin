@@ -1,8 +1,10 @@
 
-from typing import Any, Callable
+from typing import Any, Callable, Generator, Iterator
+from types import GeneratorType
 from inspect import getsource
 from .document import Document
-from .render import parse, renderToHtml
+from .render import parseSourceCode, renderToHtml
+
 
 class Lupin:
 
@@ -23,24 +25,25 @@ class Lupin:
         pass
 
     
-    def add(self, f:Callable):
+    def add(self, f:Callable, run=True):
         
         results = []
-        for res in f():
-            results.append(res)
-        
+        if run:
+            generator = f()
+            if type(generator) is GeneratorType:
+                for res in generator:
+                    results.append(res)
+
         source = getsource(f)
-        lines = parse(source)
+        lines = parseSourceCode(source)
 
         # insert into document
-        htmls = renderToHtml(lines, results)
+        htmls = renderToHtml(lines, results=results)
 
         for html in htmls:
             self.doc.writeLine(html)
 
-
         #print(lines)
-    
 
     def write(self, line):
         self.doc.writeLine(line)
@@ -61,4 +64,5 @@ class Lupin:
 
     # render and save
     def save(self, fpath:str):
-        self.doc.render(fpath)
+        # self.doc.renderToHTML()
+        self.doc.renderToPdf(fpath)

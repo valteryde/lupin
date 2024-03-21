@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset='utf-8' />
+  <style>
+    #wrapper{
+        display:flex;
+        flex-direction: column;
+        gap:0;
+        width:100%;
+    }
+
+    #wrapper .math {
+      transform: scale(0.5)  translateX(-50%);
+      position: relative;
+    }
+
+    #wrapper p {
+      margin:0;
+      padding:0;
+    }
+    
+    #wrapper div {
+      margin:0;
+      margin-bottom:10px;
+    }
+
+    .result-image {
+      position: relative;
+      max-width: 800px;
+      max-height:500px;
+      -webkit-transform:translateX(-50%);
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .result-math {
+      position: relative;
+      display: table;
+      width: fit-content;
+      -webkit-block-size: fit-content;
+      block-size: fit-content;
+      -webkit-transform:translateX(-50%);
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+  </style>
+  
+</head>
+<body>
+
+<div id="wrapper">
+
+<div><img class="math" style="height:14.5px" src="0.png"></div>
+<div><img class="math" style="height:11.0px" src="1.png"></div>
+<div><img class="math" style="height:11.5px" src="2.png"></div>
+<div><img class="math" style="height:14.75px" src="3.png"></div>
+<div><img class="math" style="height:19.0px" src="4.png"></div>
+<div><img class="math" style="height:19.0px" src="5.png"></div>
+<div><div class="result"><p><img class="math" style="height:19.0px" src="6.png"></p><p class="result-math"><img class="math" style="height:11.25px" src="7.png"></p></div></div></div>
+<div><div class="result"><p><img class="math" style="height:37.0px" src="8.png"></p><p class="result-math"><img class="math" style="height:11.25px" src="9.png"></p></div></div></div>
+<div><img class="math" style="height:20.5px" src="10.png"></div>
+<div><img class="math" style="height:19.0px" src="11.png"></div>
+<div><div class="result"><img class="result-image" src="12.png"></div></div></div>
+
+</div>
+
+</body>
+</html>

@@ -1,26 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  
+  <meta charset='utf-8' />
+  <style>
+    #wrapper{
+        display:flex;
+        flex-direction: column;
+        gap:0;
+        width:100%;
+    }
 
-    <style>
-        
-        #wrapper{
-            display:flex;
-            flex-direction: column;
-            background-color: red;
-        }
+    #wrapper .math {
+      transform: scale(0.5)  translateX(-50%);
+      position: relative;
+    }
 
-    </style>
+    #wrapper p {
+      margin:0;
+      padding:0;
+    }
+    
+    #wrapper div {
+      margin:0;
+      margin-bottom:10px;
+    }
 
+    .result-image {
+      position: relative;
+      max-width: 800px;
+      max-height:500px;
+      -webkit-transform:translateX(-50%);
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .result-math {
+      position: relative;
+      display: table;
+      width: fit-content;
+      -webkit-block-size: fit-content;
+      block-size: fit-content;
+      -webkit-transform:translateX(-50%);
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .function {
+      border-left: solid 2px rgb(100,100,100);
+      padding-left:3px;
+      margin-left:-5px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .function-title{}
+    .function-lines {}
+
+  </style>
+  
 </head>
 <body>
-    
-    <div id="wrapper">
-        {{body}}
-    </div>
+
+<div id="wrapper">
+
+{{body}}
+
+</div>
 
 </body>
 </html>
